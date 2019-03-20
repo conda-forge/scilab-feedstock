@@ -14,7 +14,7 @@ source:
     - 0001-Disable-tcl-tk-version-check.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not linux]
 
 requirements:
@@ -22,8 +22,9 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
   host:
+    - libblas
+    - libcblas
     - suitesparse
-    - openblas
     - arpack
     - ocaml
     - hdf5
