@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - python
   host:
     - libblas
     - libcblas
@@ -37,7 +38,6 @@ requirements:
     - zlib
     - xz
     - libiconv
-    - python
     - icu
     - libxml2
     - libcurl
