@@ -1,0 +1,10 @@
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -109,7 +109,7 @@
+ POST_UNINSTALL = :
+ build_triplet = x86_64-apple-darwin17.7.0
+ host_triplet = x86_64-apple-darwin17.7.0
+-bin_PROGRAMS = scilab-bin$(EXEEXT) scilab-cli-bin$(EXEEXT)
++bin_PROGRAMS = scilab-cli-bin$(EXEEXT)
+ am__append_1 = bin/checkmacosx.applescript

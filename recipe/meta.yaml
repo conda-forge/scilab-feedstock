@@ -15,12 +15,13 @@ source:
 
 build:
   number: 1
-  skip: True  # [not linux]
+  skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - pkg-config
     - python
   host:
     - libblas
@@ -31,7 +32,7 @@ requirements:
     - hdf5
     - eigen
     - fftw
-    - tk
+    - tk  # [not osx]
     - xorg-libx11
     - ncurses
     - pcre
@@ -41,6 +42,9 @@ requirements:
     - icu
     - libxml2
     - libcurl
+    - openmp
+    - gettext
+    - libmatio
   run:
     # Missing run_exports
     - {{ pin_compatible('arpack', max_pin='x.x') }}
@@ -49,6 +53,8 @@ requirements:
     - {{ pin_compatible('suitesparse', max_pin='x.x') }}
     - {{ pin_compatible('icu', max_pin='x.x') }}
     - {{ pin_compatible('ncurses', max_pin='x.x.x') }}
+    - {{ pin_compatible('openmp', max_pin='x.x.x') }}
+    - {{ pin_compatible('libmatio', max_pin='x.x.x') }}
 
 test:
   commands:
