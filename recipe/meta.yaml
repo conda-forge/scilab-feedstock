@@ -1,6 +1,6 @@
 {% set name = "scilab" %}
-{% set version = "6.0.2" %}
-{% set sha256 = "064b2a4cc5b414500bbc23c91197610e2b1f18b481f094c2b85f759924d7ffe6" %}
+{% set version = "6.1.0" %}
+{% set sha256 = "476c73250316c0a8954541c0ec36606d7c052b5fece3ec029477aa118ef0bc9e" %}
 
 package:
   name: {{ name|lower }}
@@ -14,8 +14,8 @@ source:
     - 0001-Disable-tcl-tk-version-check.patch
 
 build:
-  number: 2
-  skip: True  # [not linux]
+  number: 0
+  skip: true  # [not linux]
 
 requirements:
   build:
@@ -59,8 +59,8 @@ about:
   license: GPL-2
   license_family: GPL
   license_file: scilab/COPYING
-  summary: 'The Scilab programming language.'
-  description: 'Scilab is a  free and open-source, cross-platform numerical computational package and a high-level, numerically oriented programming language.'
+  summary: The Scilab programming language.
+  description: Scilab is a  free and open-source, cross-platform numerical computational package and a high-level, numerically oriented programming language.
   doc_url: https://wiki.scilab.org/Documentation
   dev_url: https://wiki.scilab.org/GetInvolved
 
