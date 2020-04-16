@@ -10,20 +10,22 @@ cxx_compiler_version:
 - '7'
 docker_image:
 - condaforge/linux-anvil-comp7
+fftw:
+- '3'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '7'
 hdf5:
-- 1.10.5
+- 1.10.6
 icu:
-- '58'
+- '64.2'
 libblas:
 - 3.8 *netlib
 libcblas:
 - 3.8 *netlib
 libcurl:
-- '7.64'
+- '7'
 libiconv:
 - '1.15'
 libxml2:
@@ -33,6 +35,8 @@ ncurses:
 pin_run_as_build:
   arpack:
     max_pin: x.x.x
+  fftw:
+    max_pin: x
   icu:
     max_pin: x
   libcurl:
@@ -49,6 +53,8 @@ pin_run_as_build:
     max_pin: x.x
   zlib:
     max_pin: x.x
+suitesparse:
+- '5.6'
 tk:
 - '8.6'
 xz:
