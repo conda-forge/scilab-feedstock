@@ -3,7 +3,7 @@ About scilab
 
 Home: https://www.scilab.org/
 
-Package license: GPL-2
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD-3-Clause
 
