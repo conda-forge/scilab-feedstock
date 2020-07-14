@@ -14,7 +14,7 @@ source:
     - 0001-Disable-tcl-tk-version-check.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [not linux]
 
 requirements:
