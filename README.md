@@ -5,7 +5,7 @@ Home: https://www.scilab.org/
 
 Package license: GPL-2
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: The Scilab programming language.
 

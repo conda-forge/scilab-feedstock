@@ -31,7 +31,7 @@ libiconv:
 libxml2:
 - '2.9'
 ncurses:
-- '6.1'
+- '6.2'
 pin_run_as_build:
   arpack:
     max_pin: x.x.x
