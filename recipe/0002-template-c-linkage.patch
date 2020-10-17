@@ -1,0 +1,102 @@
+From f43494678e415b6656d974cb7ca4f821706783c6 Mon Sep 17 00:00:00 2001
+From: Sylvain Corlay <sylvain.corlay@gmail.com>
+Date: Thu, 5 Mar 2020 10:19:55 +0100
+Subject: [PATCH 2/2] template-c-linkage
+
+---
+ 0001-experimental-filesystem.patch         | 67 ++++++++++++++++++++++
+ scilab/modules/xml/src/cpp/XMLDocument.hxx |  2 +-
+ 2 files changed, 68 insertions(+), 1 deletion(-)
+ create mode 100644 0001-experimental-filesystem.patch
+
+diff --git a/0001-experimental-filesystem.patch b/0001-experimental-filesystem.patch
+new file mode 100644
+index 00000000000..f545f3a1057
+--- /dev/null
++++ b/0001-experimental-filesystem.patch
+@@ -0,0 +1,67 @@
++From e3e636cef98b097b8aecb70ed6d003bcb2292c14 Mon Sep 17 00:00:00 2001
++From: Sylvain Corlay <sylvain.corlay@gmail.com>
++Date: Thu, 27 Feb 2020 14:50:04 +0100
++Subject: [PATCH] experimental-filesystem
++
++---
++ scilab/modules/fileio/src/cpp/fullpath.cpp | 14 +++++++-------
++ 1 file changed, 7 insertions(+), 7 deletions(-)
++
++diff --git a/scilab/modules/fileio/src/cpp/fullpath.cpp b/scilab/modules/fileio/src/cpp/fullpath.cpp
++index d23013b6153..cd4bf3669fb 100644
++--- a/scilab/modules/fileio/src/cpp/fullpath.cpp
+++++ b/scilab/modules/fileio/src/cpp/fullpath.cpp
++@@ -13,7 +13,7 @@
++ */
++ /*--------------------------------------------------------------------------*/
++ 
++-#include <filesystem>
+++#include <experimental/filesystem>
++ 
++ extern "C"
++ {
++@@ -44,10 +44,10 @@ char *get_full_path(const char *_Path)
++     return _FullPath;
++ #else // POSIX
++     char* expanded = expandPathVariable(_Path);
++-    std::filesystem::path relPath = std::filesystem::path(expanded);
+++    std::experimental::filesystem::path relPath = std::experimental::filesystem::path(expanded);
++     FREE(expanded);
++ 
++-    std::filesystem::path canonPath = std::filesystem::weakly_canonical(relPath);
+++    std::experimental::filesystem::path canonPath = std::experimental::filesystem::canonical(relPath);
++     auto relPathIt = relPath.end();
++     auto canonPathIt = canonPath.end();
++     if ((--relPathIt)->string().empty() && !(--canonPathIt)->string().empty())
++@@ -55,7 +55,7 @@ char *get_full_path(const char *_Path)
++         canonPath /= "";
++     }
++ 
++-    return os_strdup(std::filesystem::absolute(canonPath).string().c_str());
+++    return os_strdup(std::experimental::filesystem::absolute(canonPath).string().c_str());
++ #endif // _MSC_VER
++ }
++ 
++@@ -76,8 +76,8 @@ wchar_t *get_full_pathW(const wchar_t * _wcPath)
++         bAppend = true;
++     }
++ 
++-    std::filesystem::path relPath = std::filesystem::path(s);
++-    std::filesystem::path canonPath = std::filesystem::weakly_canonical(relPath);
+++    std::experimental::filesystem::path relPath = std::experimental::filesystem::path(s);
+++    std::experimental::filesystem::path canonPath = std::experimental::filesystem::canonical(relPath);
++     auto relPathIt = relPath.end();
++     auto canonPathIt = canonPath.end();
++     if ((--relPathIt)->wstring().empty() && !(--canonPathIt)->wstring().empty())
++@@ -85,7 +85,7 @@ wchar_t *get_full_pathW(const wchar_t * _wcPath)
++         canonPath /= "";
++     }
++ 
++-    std::filesystem::path p = std::filesystem::absolute(canonPath);
+++    std::experimental::filesystem::path p = std::experimental::filesystem::absolute(canonPath);
++ 
++     //add "file" part
++     if (bAppend)
++-- 
++2.25.0
++
+diff --git a/scilab/modules/xml/src/cpp/XMLDocument.hxx b/scilab/modules/xml/src/cpp/XMLDocument.hxx
+index 51f52088ac8..2905952ec2e 100644
+--- a/scilab/modules/xml/src/cpp/XMLDocument.hxx
++++ b/scilab/modules/xml/src/cpp/XMLDocument.hxx
+@@ -23,9 +23,9 @@
+ 
+ #include "dynlib_xml_scilab.h"
+ 
++#include "xml.h"
+ extern "C"
+ {
+-#include "xml.h"
+ #ifndef XML_XPATH_CHECKNS
+ #define XML_XPATH_CHECKNS
+ #endif
+-- 
+2.25.0
+
