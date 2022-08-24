@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-Fixup-template-with-C-linkage.patch
+    - 0001-fix-const-chart-error.patch
 
 build:
   number: 1
