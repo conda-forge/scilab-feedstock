@@ -1,6 +1,6 @@
 {% set name = "scilab" %}
-{% set version = "6.0.2" %}
-{% set sha256 = "064b2a4cc5b414500bbc23c91197610e2b1f18b481f094c2b85f759924d7ffe6" %}
+{% set version = "6.1.0" %}
+{% set sha256 = "476c73250316c0a8954541c0ec36606d7c052b5fece3ec029477aa118ef0bc9e" %}
 
 package:
   name: {{ name|lower }}
@@ -11,10 +11,10 @@ source:
   url: https://github.com/opencollab/scilab/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-Disable-tcl-tk-version-check.patch
+    - 0001-Fixup-template-with-C-linkage.patch
 
 build:
-  number: 2
+  number: 0
   skip: True  # [not linux]
 
 requirements:
@@ -22,16 +22,16 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
     - python
+    - make
   host:
     - libblas
     - libcblas
     - suitesparse
     - arpack
     - ocaml
-    - hdf5
+    - hdf5 >=1.10,<1.12
     - eigen
     - fftw
-    - tk
     - xorg-libx11
     - ncurses
     - pcre
@@ -56,7 +56,7 @@ test:
 
 about:
   home: https://www.scilab.org/
-  license: GPL-2
+  license: GPL-2.0-only
   license_family: GPL
   license_file: scilab/COPYING
   summary: 'The Scilab programming language.'

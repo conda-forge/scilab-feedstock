@@ -1,0 +1,79 @@
+From f0569d1e3f4f255d822165305d5c75aa2033271a Mon Sep 17 00:00:00 2001
+From: Sylvain Corlay <sylvain.corlay@gmail.com>
+Date: Wed, 3 Aug 2022 01:48:45 +0200
+Subject: [PATCH] Fixup template with C linkage
+
+---
+ scilab/modules/functions_manager/src/cpp/dynamic_modules.cpp | 5 ++++-
+ scilab/modules/io/src/cpp/loadlib.cpp                        | 2 +-
+ scilab/modules/scicos/includes/XMIResource.hxx               | 2 --
+ scilab/modules/xml/src/cpp/XMLDocument.hxx                   | 2 +-
+ 4 files changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/scilab/modules/functions_manager/src/cpp/dynamic_modules.cpp b/scilab/modules/functions_manager/src/cpp/dynamic_modules.cpp
+index c6b318b035b..cdb843f7de0 100644
+--- a/scilab/modules/functions_manager/src/cpp/dynamic_modules.cpp
++++ b/scilab/modules/functions_manager/src/cpp/dynamic_modules.cpp
+@@ -22,10 +22,13 @@ extern "C"
+ {
+ #include "loadOnUseClassPath.h"
+ #include "Scierror.h"
+-
++}
+     //XML API
+ #include <libxml/xpath.h>
+ #include <libxml/xmlreader.h>
++
++extern "C"
++{
+ #include "sci_malloc.h"
+ #include "configvariable_interface.h"
+ }
+diff --git a/scilab/modules/io/src/cpp/loadlib.cpp b/scilab/modules/io/src/cpp/loadlib.cpp
+index b308c79a672..a8be99ac193 100644
+--- a/scilab/modules/io/src/cpp/loadlib.cpp
++++ b/scilab/modules/io/src/cpp/loadlib.cpp
+@@ -26,9 +26,9 @@ extern "C"
+ #include "fullpath.h"
+ #include "PATH_MAX.h"
+ #include "pathconvert.h"
++}
+ #include <libxml/xpath.h>
+ #include <libxml/xmlreader.h>
+-}
+ 
+ #define DEFAULT_ENCODING "UTF-8"
+ 
+diff --git a/scilab/modules/scicos/includes/XMIResource.hxx b/scilab/modules/scicos/includes/XMIResource.hxx
+index 5c115b9124c..00891b704bd 100644
+--- a/scilab/modules/scicos/includes/XMIResource.hxx
++++ b/scilab/modules/scicos/includes/XMIResource.hxx
+@@ -22,10 +22,8 @@
+ #include <string>
+ #include <vector>
+ 
+-extern "C" {
+ #include <libxml/xmlwriter.h>
+ #include <libxml/xmlreader.h>
+-}
+ 
+ namespace org_scilab_modules_scicos
+ {
+diff --git a/scilab/modules/xml/src/cpp/XMLDocument.hxx b/scilab/modules/xml/src/cpp/XMLDocument.hxx
+index 51f52088ac8..2905952ec2e 100644
+--- a/scilab/modules/xml/src/cpp/XMLDocument.hxx
++++ b/scilab/modules/xml/src/cpp/XMLDocument.hxx
+@@ -23,9 +23,9 @@
+ 
+ #include "dynlib_xml_scilab.h"
+ 
++#include "xml.h"
+ extern "C"
+ {
+-#include "xml.h"
+ #ifndef XML_XPATH_CHECKNS
+ #define XML_XPATH_CHECKNS
+ #endif
+-- 
+2.30.1 (Apple Git-130)
+
