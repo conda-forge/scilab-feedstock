@@ -30,7 +30,7 @@ requirements:
     - suitesparse
     - arpack
     - ocaml
-    - hdf5
+    - hdf5 >=1.10,<1.12
     - eigen
     - fftw
     - tk
