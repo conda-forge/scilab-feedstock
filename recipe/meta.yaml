@@ -11,7 +11,6 @@ source:
   url: https://github.com/opencollab/scilab/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-Disable-tcl-tk-version-check.patch
     - 0001-Fixup-template-with-C-linkage.patch
 
 build:
@@ -33,7 +32,6 @@ requirements:
     - hdf5 >=1.10,<1.12
     - eigen
     - fftw
-    - tk
     - xorg-libx11
     - ncurses
     - pcre

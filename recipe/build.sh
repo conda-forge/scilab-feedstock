@@ -11,7 +11,8 @@ cd scilab
             --disable-build-help \
             --with-eigen-include=${PREFIX}/include/eigen3 \
             --without-modelica \
-            --without-matio
+            --without-matio \
+            --without-tk
 
 make -j${CPU_COUNT}
 make install
