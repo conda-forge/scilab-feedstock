@@ -23,6 +23,7 @@ requirements:
     - {{ compiler('fortran') }}
     - python
     - make
+    - pkg-config
   host:
     - libblas
     - libcblas
