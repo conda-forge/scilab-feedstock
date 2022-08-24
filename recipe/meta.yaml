@@ -1,6 +1,6 @@
 {% set name = "scilab" %}
-{% set version = "6.1.0" %}
-{% set sha256 = "476c73250316c0a8954541c0ec36606d7c052b5fece3ec029477aa118ef0bc9e" %}
+{% set version = "6.1.1" %}
+{% set sha256 = "83555679b7d56df4aedad60678d97794cc5aefcda8b57206899016b5702607a4" %}
 
 package:
   name: {{ name|lower }}
