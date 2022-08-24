@@ -1,0 +1,25 @@
+From 7ca5269dddb1ea11d71ce9df823f57996e6fcca9 Mon Sep 17 00:00:00 2001
+From: Sylvain Corlay <sylvain.corlay@gmail.com>
+Date: Wed, 24 Aug 2022 23:18:23 +0200
+Subject: [PATCH] Fix Makefile syntax
+
+---
+ scilab/modules/cacsd/Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scilab/modules/cacsd/Makefile.in b/scilab/modules/cacsd/Makefile.in
+index 35260651f48..0ae308a45e9 100644
+--- a/scilab/modules/cacsd/Makefile.in
++++ b/scilab/modules/cacsd/Makefile.in
+@@ -2114,7 +2114,7 @@ uninstall-am: uninstall-libscicacsd_la_etcDATA \
+ 
+ # enforce -O0 for some files
+ @IS_MACOSX_TRUE@src/fortran/sszer.lo: src/fortran/sszer.f
+-@IS_MACOSX_TRUE@        $(LIBTOOL) $(AM_V_lt)  --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(F77) $(AM_FFLAGS) $(FFLAGS) -O0 -c -o src/fortran/sszer.lo src/fortran/sszer.f
++@IS_MACOSX_TRUE@	$(LIBTOOL) $(AM_V_lt)  --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(F77) $(AM_FFLAGS) $(FFLAGS) -O0 -c -o src/fortran/sszer.lo src/fortran/sszer.f
+ 
+ # This target enables tests for Scilab
+ check-local: $(top_builddir)/scilab-bin test
+-- 
+2.30.1 (Apple Git-130)
+
