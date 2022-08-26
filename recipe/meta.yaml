@@ -14,7 +14,7 @@ source:
     - 0001-Fixup-template-with-C-linkage.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not linux]
 
 requirements:
@@ -41,6 +41,7 @@ requirements:
     - icu
     - libxml2
     - libcurl
+    - libmatio
   run:
     # Missing run_exports
     - {{ pin_compatible('arpack', max_pin='x.x') }}
