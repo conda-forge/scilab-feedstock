@@ -7,7 +7,6 @@ export FFLAGS="$FFLAGS -std=legacy"
 cd scilab
 ./configure --prefix=${PREFIX} \
             --without-javasci \
-            --without-gui \
             --disable-build-help \
             --with-eigen-include=${PREFIX}/include/eigen3 \
             --without-modelica \
