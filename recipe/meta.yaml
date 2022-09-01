@@ -14,6 +14,7 @@ source:
     - 0001-Fixup-template-with-C-linkage.patch
     - 0001-fix-const-chart-error.patch
     - 0001-Fix-Makefile-syntax.patch
+    - 0001-lstdc-fs.patch
 
 build:
   number: 1

@@ -1,0 +1,39 @@
+From f2bb48ca726f4a411228f46e0f895276bc4ac15e Mon Sep 17 00:00:00 2001
+From: Sylvain Corlay <sylvain.corlay@gmail.com>
+Date: Thu, 1 Sep 2022 23:21:16 +0200
+Subject: [PATCH] -lstdc++fs
+
+---
+ scilab/modules/Makefile.am | 3 ---
+ scilab/modules/Makefile.in | 3 +--
+ 2 files changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/scilab/modules/Makefile.am b/scilab/modules/Makefile.am
+index 467ff89a88a..3bdcd5c68f5 100644
+--- a/scilab/modules/Makefile.am
++++ b/scilab/modules/Makefile.am
+@@ -262,7 +262,4 @@ libscilab_cli_la_LDFLAGS = $(AM_LDFLAGS) $(SCI_LDFLAGS)
+ # Core modules
+ libscilab_cli_la_LIBADD = $(ENGINE_LIBS) $(NO_GUI_LIBS) $(OTHER_LIBS) $(EXTERNAL_LIBS) $(FLIBS) $(LAPACK_LIBS) $(BLAS_LIBS)
+ 
+-# Compiler specific support
+-libscilab_cli_la_LIBADD += -lstdc++fs # needed before gcc 9 (Ubuntu 18.04)
+-
+ .NOTPARALLEL: libscilab-cli.la libscilab.la
+diff --git a/scilab/modules/Makefile.in b/scilab/modules/Makefile.in
+index 2b04dff408c..4c52cbbfa68 100644
+--- a/scilab/modules/Makefile.in
++++ b/scilab/modules/Makefile.in
+@@ -748,8 +748,7 @@ libscilab_cli_la_LDFLAGS = $(AM_LDFLAGS) $(SCI_LDFLAGS)
+ 
+ # Compiler specific support
+ libscilab_cli_la_LIBADD = $(ENGINE_LIBS) $(NO_GUI_LIBS) $(OTHER_LIBS) \
+-	$(EXTERNAL_LIBS) $(FLIBS) $(LAPACK_LIBS) $(BLAS_LIBS) \
+-	-lstdc++fs # needed before gcc 9 (Ubuntu 18.04)
++	$(EXTERNAL_LIBS) $(FLIBS) $(LAPACK_LIBS) $(BLAS_LIBS)
+ all: all-recursive
+ 
+ .SUFFIXES:
+-- 
+2.37.1
+
