@@ -29,7 +29,7 @@ requirements:
     - suitesparse
     - arpack
     - ocaml
-    - hdf5 >=1.10,<1.12
+    - hdf5
     - eigen
     - fftw
     - xorg-libx11
