@@ -27,7 +27,9 @@ libcblas:
 libcurl:
 - '7'
 libiconv:
-- '1.16'
+- '1.17'
+libmatio:
+- 1.5.21
 libxml2:
 - '2.9'
 ncurses:
