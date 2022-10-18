@@ -12,10 +12,13 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-Fixup-template-with-C-linkage.patch
+    - 0001-fix-const-chart-error.patch
+    - 0001-Fix-Makefile-syntax.patch
+    - 0001-lstdc-fs.patch
 
 build:
   number: 1
-  skip: True  # [not linux]
+  skip: True  # [win]
 
 requirements:
   build:
@@ -23,6 +26,7 @@ requirements:
     - {{ compiler('fortran') }}
     - python
     - make
+    - pkg-config
   host:
     - libblas
     - libcblas
@@ -42,6 +46,7 @@ requirements:
     - libxml2
     - libcurl
     - libmatio
+    - gettext  # [not linux]
   run:
     # Missing run_exports
     - {{ pin_compatible('arpack', max_pin='x.x') }}
