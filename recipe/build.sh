@@ -6,6 +6,8 @@ export FFLAGS="$FFLAGS -std=legacy"
 
 if [[ `uname` == 'Darwin' ]]; then
   EXTRA_CONFIGURE_ARGS="--disable-dependency-tracking"
+  export LDFLAGS="${LDFLAGS//-Wl,-dead_strip_dylibs/}"
+  export CPPFLAGS="-DNDEBUG ${CPPFLAGS}"
 fi
 
 cd scilab
