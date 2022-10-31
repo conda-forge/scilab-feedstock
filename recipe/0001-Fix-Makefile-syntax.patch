@@ -1,14 +1,28 @@
-From 7ca5269dddb1ea11d71ce9df823f57996e6fcca9 Mon Sep 17 00:00:00 2001
+From 4796310139422ac489eae05319e2c59c1c40201d Mon Sep 17 00:00:00 2001
 From: Sylvain Corlay <sylvain.corlay@gmail.com>
-Date: Wed, 24 Aug 2022 23:18:23 +0200
+Date: Mon, 31 Oct 2022 18:19:00 +0100
 Subject: [PATCH] Fix Makefile syntax
 
 ---
+ scilab/modules/cacsd/Makefile.am | 2 +-
  scilab/modules/cacsd/Makefile.in | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/scilab/modules/cacsd/Makefile.am b/scilab/modules/cacsd/Makefile.am
+index 249817f2ed5..e59964593ed 100644
+--- a/scilab/modules/cacsd/Makefile.am
++++ b/scilab/modules/cacsd/Makefile.am
+@@ -215,7 +215,7 @@ endif
+ if IS_MACOSX
+ # enforce -O0 for some files
+ src/fortran/sszer.lo: src/fortran/sszer.f
+-        $(LIBTOOL) $(AM_V_lt)  --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(F77) $(AM_FFLAGS) $(FFLAGS) -O0 -c -o src/fortran/sszer.lo src/fortran/sszer.f
++	$(LIBTOOL) $(AM_V_lt)  --tag=F77 $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(F77) $(AM_FFLAGS) $(FFLAGS) -O0 -c -o src/fortran/sszer.lo src/fortran/sszer.f
+ endif
+ 
+ libscicacsd_la_LDFLAGS = $(AM_LDFLAGS)
 diff --git a/scilab/modules/cacsd/Makefile.in b/scilab/modules/cacsd/Makefile.in
-index 35260651f48..0ae308a45e9 100644
+index 35260651f48..3cf11ac4f85 100644
 --- a/scilab/modules/cacsd/Makefile.in
 +++ b/scilab/modules/cacsd/Makefile.in
 @@ -2114,7 +2114,7 @@ uninstall-am: uninstall-libscicacsd_la_etcDATA \
