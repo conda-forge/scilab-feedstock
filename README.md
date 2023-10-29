@@ -1,11 +1,11 @@
-About scilab
-============
+About scilab-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scilab-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.scilab.org/
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scilab-feedstock/blob/main/LICENSE.txt)
 
 Summary: The Scilab programming language.
 
