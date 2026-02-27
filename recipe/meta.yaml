@@ -41,7 +41,7 @@ requirements:
     - ncurses
     - pcre
     - zlib
-    - xz
+    - liblzma-devel
     - libiconv
     - icu
     - libxml2
