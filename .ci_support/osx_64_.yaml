@@ -33,7 +33,7 @@ libcurl:
 libiconv:
 - '1'
 libmatio:
-- 1.5.29
+- 1.5.30
 libxml2:
 - '2.13'
 macos_machine:
