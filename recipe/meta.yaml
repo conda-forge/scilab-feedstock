@@ -17,7 +17,7 @@ source:
     - 0001-lstdc-fs.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
 
 requirements:
