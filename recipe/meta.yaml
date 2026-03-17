@@ -17,13 +17,14 @@ source:
     - 0001-lstdc-fs.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}
+    - {{ stdlib("c") }}
     - python
     - make
     - pkg-config
